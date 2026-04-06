@@ -3,78 +3,69 @@ import { Target, Zap, Award, Flame } from 'lucide-react';
 
 export default function Gamification() {
   return (
-    <div className="max-w-5xl mx-auto">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-800">My Progress</h1>
-        <p className="text-slate-500 mt-2">Track your learning journey totally offline.</p>
+    <div className="page-container">
+      <div className="page-header">
+        <h1>My Progress</h1>
+        <p>Track your learning journey totally offline.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div className="stats-grid">
         {/* Stat Card 1 */}
-        <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
-          <div className="absolute right-[-10%] top-[-10%] opacity-20 transform rotate-12 mix-blend-overlay">
-            <Zap size={120} />
+        <div className="stat-card" style={{ background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(79, 70, 229, 0.1))' }}>
+          <div className="stat-icon" style={{ color: '#6366f1', background: 'rgba(99, 102, 241, 0.15)' }}>
+            <Zap size={28} />
           </div>
-          <div className="relative z-10">
-            <div className="bg-white/20 w-max p-2 rounded-xl mb-4">
-              <Zap size={24} />
-            </div>
-            <p className="text-indigo-100 font-medium">Questions Asked</p>
-            <h2 className="text-4xl font-bold mt-1">124</h2>
+          <div>
+            <div className="stat-label">Questions Asked</div>
+            <div className="stat-value">124</div>
           </div>
         </div>
 
         {/* Stat Card 2 */}
-        <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
-          <div className="absolute right-[-10%] top-[-10%] opacity-20 transform -rotate-12 mix-blend-overlay">
-            <Award size={120} />
+        <div className="stat-card" style={{ background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(217, 70, 239, 0.1))' }}>
+          <div className="stat-icon" style={{ color: '#d946ef', background: 'rgba(217, 70, 239, 0.15)' }}>
+            <Award size={28} />
           </div>
-          <div className="relative z-10">
-            <div className="bg-white/20 w-max p-2 rounded-xl mb-4">
-              <Award size={24} />
-            </div>
-            <p className="text-purple-100 font-medium">Quizzes Passed</p>
-            <h2 className="text-4xl font-bold mt-1">42</h2>
+          <div>
+            <div className="stat-label">Quizzes Passed</div>
+            <div className="stat-value">42</div>
           </div>
         </div>
 
         {/* Stat Card 3 */}
-        <div className="bg-gradient-to-br from-emerald-400 to-teal-500 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
-          <div className="absolute right-[-10%] top-[-10%] opacity-20 transform rotate-12 mix-blend-overlay">
-            <Flame size={120} />
+        <div className="stat-card" style={{ background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(20, 184, 166, 0.1))' }}>
+          <div className="stat-icon" style={{ color: '#10b981', background: 'rgba(16, 185, 129, 0.15)' }}>
+            <Flame size={28} />
           </div>
-          <div className="relative z-10">
-            <div className="bg-white/20 w-max p-2 rounded-xl mb-4">
-              <Flame size={24} />
-            </div>
-            <p className="text-emerald-50 font-medium">Current Streak</p>
-            <h2 className="text-4xl font-bold mt-1">8 Days</h2>
+          <div>
+            <div className="stat-label">Current Streak</div>
+            <div className="stat-value">8 Days</div>
           </div>
         </div>
       </div>
 
       {/* Badges Section */}
-      <div className="bg-white/60 backdrop-blur-xl shadow-xl rounded-3xl p-8 border border-white/50">
-        <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
-          <Award className="text-orange-500" />
+      <div className="card" style={{ marginTop: '2rem' }}>
+        <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: '0 0 1.5rem', color: 'var(--text-primary)' }}>
+          <Award style={{ color: '#f59e0b' }} />
           Earned Badges
         </h3>
         
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-          <div className="flex flex-col items-center justify-center p-6 bg-slate-50 border border-slate-100 rounded-2xl">
-            <div className="w-16 h-16 bg-blue-100 text-blue-500 rounded-full flex items-center justify-center mb-3">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-subtle)', borderRadius: '1rem', padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
               <Target size={32} />
             </div>
-            <h4 className="font-bold text-slate-700 text-sm">Physics Pro</h4>
-            <p className="text-[10px] text-slate-400 mt-1 uppercase font-semibold">10/10 Quiz</p>
+            <h4 style={{ fontWeight: '600', color: 'var(--text-primary)', margin: 0 }}>Physics Pro</h4>
+            <p style={{ fontSize: '0.75rem', color: 'var(--success)', marginTop: '0.25rem', textTransform: 'uppercase', fontWeight: 600 }}>10/10 Quiz</p>
           </div>
           
-          <div className="flex flex-col items-center justify-center p-6 bg-slate-50 border border-slate-100 rounded-2xl opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-not-allowed">
-            <div className="w-16 h-16 bg-slate-200 text-slate-400 rounded-full flex items-center justify-center mb-3">
+          <div style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '1rem', padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', opacity: 0.5, filter: 'grayscale(1)' }}>
+            <div style={{ background: 'rgba(148, 163, 184, 0.1)', color: '#94a3b8', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
               <Award size={32} />
             </div>
-            <h4 className="font-bold text-slate-700 text-sm">Math Wizard</h4>
-            <p className="text-[10px] text-slate-400 mt-1 uppercase font-semibold">Locked</p>
+            <h4 style={{ fontWeight: '600', color: 'var(--text-secondary)', margin: 0 }}>Math Wizard</h4>
+            <p style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)', marginTop: '0.25rem', textTransform: 'uppercase', fontWeight: 600 }}>Locked</p>
           </div>
         </div>
       </div>

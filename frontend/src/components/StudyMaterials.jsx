@@ -49,26 +49,26 @@ export default function StudyMaterials() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-800">Local Knowledge Base</h1>
-        <p className="text-slate-500 mt-2">These documents are vectorized and accessible to the AI teacher.</p>
+    <div className="page-container">
+      <div className="page-header">
+        <h1>Local Knowledge Base</h1>
+        <p>These documents are vectorized and accessible to the AI teacher.</p>
       </div>
 
-      <div className="bg-white/60 backdrop-blur-xl border border-white shadow-xl rounded-3xl p-6 mb-8">
-        <div className="flex gap-4 items-center mb-6">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+      <div className="card">
+        <div className="search-bar">
+          <div className="search-input-wrapper">
+            <Search className="search-icon" size={18} />
             <input 
               type="text" 
               placeholder="Search local documents..." 
-              className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/80 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+              className="search-input"
             />
           </div>
           <button 
             disabled={isUploading}
             onClick={handleUploadClick}
-            className="bg-slate-800 text-white px-6 py-3 rounded-xl font-medium hover:bg-slate-700 transition disabled:opacity-75 flex items-center gap-2"
+            className="btn-primary"
           >
             {isUploading ? "Reading Book..." : "Upload PDF"}
             {!isUploading && <Upload size={18} />}
@@ -78,34 +78,35 @@ export default function StudyMaterials() {
             ref={fileInputRef} 
             onChange={handleFileChange} 
             accept="application/pdf" 
-            className="hidden" 
+            style={{ display: 'none' }} 
           />
         </div>
 
-        <div className="space-y-4">
+        <div className="doc-list">
+          {materials.length === 0 && <div style={{textAlign: 'center', padding: '2rem', color: 'var(--text-tertiary)'}}>No PDFs found. Upload NCERT books to get started.</div>}
           {materials.map((doc, idx) => (
-            <div key={idx} className="group flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100 shadow-sm transition-all hover:shadow-md cursor-pointer">
-              <div className="flex items-center gap-4">
-                <div className="bg-red-50 p-3 rounded-xl text-red-500 group-hover:scale-110 transition-transform">
+            <div key={idx} className="doc-item">
+              <div className="doc-info">
+                <div className="doc-icon">
                   <FileText size={24} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-800">{doc.title}</h3>
-                  <div className="flex items-center gap-3 text-xs text-slate-400 mt-1 font-medium">
+                  <div className="doc-title">{doc.title}</div>
+                  <div className="doc-meta">
                     <span>{doc.type}</span>
                     <span>•</span>
                     <span>{doc.size}</span>
                     <span>•</span>
-                    <span className="text-emerald-500">{doc.date}</span>
+                    <span className="date">{doc.date}</span>
                   </div>
                 </div>
               </div>
               
-              <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <a href={`http://localhost:8000/files/${doc.title}`} target="_blank" rel="noopener noreferrer" title="View" className="p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg inline-flex">
+              <div className="doc-actions">
+                <a href={`http://localhost:8000/files/${doc.title}`} target="_blank" rel="noopener noreferrer" title="View" className="action-icon">
                   <Eye size={18} />
                 </a>
-                <a href={`http://localhost:8000/files/${doc.title}`} download title="Download" className="p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg inline-flex">
+                <a href={`http://localhost:8000/files/${doc.title}`} download title="Download" className="action-icon">
                   <Download size={18} />
                 </a>
               </div>
