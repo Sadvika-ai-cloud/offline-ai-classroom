@@ -97,7 +97,7 @@ To use it from other devices, connect them to the same Wi-Fi network and open `h
 - [ ] Finish Raspberry Pi deployment and Wi-Fi hotspot setup
 - [ ] Add more offline study resources
 - [ ] Improve response speed on low-power hardware
-- [ ] [ADD YOUR OWN]
+- [ ] Android app deployment
 
 ## Why I Built This
 
