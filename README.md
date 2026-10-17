@@ -45,7 +45,7 @@ Flask backend  -->  Ollama (local LLM)
 |---|---|
 | Language | Python, JavaScript |
 | Backend | Flask |
-| AI / GenAI | Ollama (model: [MODEL NAME, e.g. llama3.2]) |
+| AI / GenAI | Ollama (model:  llama3.2) |
 | Frontend | HTML, CSS, JavaScript |
 | Hardware | Raspberry Pi (target deployment) |
 
@@ -73,7 +73,7 @@ git clone https://github.com/Sadvika-ai-cloud/offline-ai-classroom.git
 cd offline-ai-classroom
 
 # 2. Download a model once (needs internet)
-ollama pull [MODEL NAME]
+ollama pull 
 
 # 3. Install backend dependencies
 cd backend
@@ -89,8 +89,8 @@ On Windows, double-click or run:
 start_servers.bat
 ```
 
-Then open the address shown in the terminal (for example `http://localhost:[PORT]`).
-To use it from other devices, connect them to the same Wi-Fi network and open `http://[HOST-IP]:[PORT]`.
+Then open the address shown in the terminal (for example `http://localhost`).
+To use it from other devices, connect them to the same Wi-Fi network and open `http://[HOST-IP].
 
 ## Roadmap
 
